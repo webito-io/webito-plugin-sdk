@@ -1,6 +1,8 @@
+import * as hooks from './hooks';
+
 type HookCallback = (data: any) => Promise<void> | void;
 
-class Plugin {
+class WebitoPlugin {
   private name: string;
   private hooks: Record<string, HookCallback[]>;
 
@@ -25,4 +27,4 @@ class Plugin {
   }
 }
 
-export default Plugin;
+export default WebitoPlugin;

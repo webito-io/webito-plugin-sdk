@@ -1,5 +1,6 @@
-import Plugin from './plugin'
-import hooks from './plugin'
+// src/index.ts
 
-export { Plugin, hooks };
+import WebitoPlugin from './plugin';
+import * as hooks from './hooks';
 
+export default { WebitoPlugin, hooks };
