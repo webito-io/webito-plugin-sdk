@@ -35,6 +35,10 @@ class WebitoPlugin {
             return false
         }
     }
+
+    async response({ status, data }: { status: Boolean, data: Object }) {
+        console.log({ status: status, data: data })
+    }
 }
 
 export default WebitoPlugin;
