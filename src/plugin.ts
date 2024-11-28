@@ -37,7 +37,7 @@ class WebitoPlugin {
     }
 
     async response({ status, data }: { status: Boolean, data: Object }) {
-        console.log({ status: status, data: data })
+        console.log(JSON.stringify({ 'webito_response_status': status, 'webito_response_data': data }))
     }
 }
 
