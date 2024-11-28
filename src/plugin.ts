@@ -1,4 +1,4 @@
-type HookCallback = (data: any) => Object;
+type HookCallback = (data: any) => Promise<void> | void | Object;
 
 class WebitoPlugin {
     private name: string;
