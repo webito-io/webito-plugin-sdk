@@ -1,4 +1,4 @@
-type HookCallback = (data: any) => Promise<void> | void;
+type HookCallback = (data: any) => Promise<void> | void | Object;
 
 class WebitoPlugin {
     private name: string;
@@ -15,7 +15,7 @@ class WebitoPlugin {
             console.warn(`Hook ${hookName} is already registered.`);
             return;
         }
-        
+
         if (!this.hooks[hookName]) {
             this.hooks[hookName] = [];
             this.registeredHooks.add(hookName); // ثبت هوک
@@ -25,11 +25,14 @@ class WebitoPlugin {
 
     async executeHook(hookName: string, data: any) {
         if (this.hooks[hookName]) {
-            for (const callback of this.hooks[hookName]) {
-                await callback(data);
-            }
+            // for (const callback of this.hooks[hookName]) {
+            //     return await callback(data);
+            // }
+            const callback = this.hooks[hookName];
+            return await callback[0](data);
         } else {
-            console.warn(`Hook ${hookName} not found.`);
+            // console.warn(`Hook ${hookName} not found.`);
+            return false
         }
     }
 }
