@@ -1,5 +1,5 @@
 export type paymentsCreate_input = {
-    gateway: object; // data like name, currency, id'
+    gateway: { [key: string]: any }; // data like name, currency, id'
     amount: number;
     callback: string;
     payment: string;
@@ -7,13 +7,13 @@ export type paymentsCreate_input = {
 
 export type paymentsCreate_output = {
     status: boolean;
-    transaction: object;
+    transaction: { [key: string]: any };
     url: string;
 }
 
 export type paymentsVerify_input = {
-    gateway: object;
-    payment: object;
+    gateway: { [key: string]: any };
+    payment: { [key: string]: any };
 }
 
 export type paymentsVerify_output = {

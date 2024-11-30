@@ -1,5 +1,5 @@
 export type packsSend_input = {
-    pack: object; // array of physical items in cart
+    pack: { [key: string]: any }; // array of physical items in cart
 }
 
 export type packsSend_output = {

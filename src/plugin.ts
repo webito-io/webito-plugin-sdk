@@ -22,7 +22,24 @@ class WebitoPlugin {
         this.hooks[hookName].push(callback);
     }
 
-    executeHook<TInput, TOutput>(hookName: string, input: TInput): TOutput | null {
+    // async executeHook<TInput, TOutput>(hookName: string, input: { vars: object | undefined; data: TInput }): Promise<TOutput | null> {
+    //     const callbacks = this.hooks[hookName];
+    //     if (!callbacks) {
+    //         return null;
+    //     }
+    
+    //     let output: TOutput | null = null;
+    
+    //     for (const callback of callbacks) {
+    //         const result = callback(input);
+    //         output = result instanceof Promise ? await result : result;
+    //         if (output === null || (typeof output === 'object' && !output)) break;
+    //     }
+    
+    //     return output;
+    // }
+
+    async executeHook<TInput, TOutput>(hookName: string, input: { vars: object | undefined, data: TInput }): Promise<TOutput | null> {
         const callbacks = this.hooks[hookName];
         if (!callbacks) {
             return null;
