@@ -1,7 +1,7 @@
-export interface packsSend_input {
+export type packsSend_input = {
     pack: object; // array of physical items in cart
 }
 
-export interface packsSend_output {
+export type packsSend_output = {
     status: boolean;
 }
