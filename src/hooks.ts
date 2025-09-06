@@ -1,4 +1,5 @@
-export const messagesCreate = 'messagesCreate';
+export const smsCreate = 'smsCreate';
+export const emailCreate = 'emailCreate';
 
 // payments
 export const paymentsCreate = 'paymentsCreate';

@@ -22,23 +22,6 @@ class WebitoPlugin {
         this.hooks[hookName].push(callback);
     }
 
-    // async executeHook<TInput, TOutput>(hookName: string, input: { vars: object | undefined; data: TInput }): Promise<TOutput | null> {
-    //     const callbacks = this.hooks[hookName];
-    //     if (!callbacks) {
-    //         return null;
-    //     }
-    
-    //     let output: TOutput | null = null;
-    
-    //     for (const callback of callbacks) {
-    //         const result = callback(input);
-    //         output = result instanceof Promise ? await result : result;
-    //         if (output === null || (typeof output === 'object' && !output)) break;
-    //     }
-    
-    //     return output;
-    // }
-
     async executeHook<TInput, TOutput>(hookName: string, input: { vars: object | undefined, data: TInput }): Promise<TOutput | null> {
         const callbacks = this.hooks[hookName];
         if (!callbacks) {
@@ -52,19 +35,6 @@ class WebitoPlugin {
 
         return output as TOutput;
     }
-
-    // async executeHook(hookName: string, data: any) {
-    //     if (this.hooks[hookName]) {
-    //         // for (const callback of this.hooks[hookName]) {
-    //         //     return await callback(data);
-    //         // }
-    //         const callback = this.hooks[hookName];
-    //         return await callback[0](data);
-    //     } else {
-    //         // console.warn(`Hook ${hookName} not found.`);
-    //         return false
-    //     }
-    // }
 
     async response({ status, data }: { status: Boolean, data: Object }) {
         console.log(JSON.stringify({ 'webito_response_status': status, 'webito_response_data': data }))
