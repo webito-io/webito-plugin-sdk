@@ -3,7 +3,7 @@ export type paymentsCreate_input = {
     amount: number;
     callback: string;
     payment: string;
-    order: { [key: string]: any };
+    order?: { [key: string]: any };
 }
 
 export type paymentsCreate_output = {
