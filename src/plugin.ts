@@ -22,7 +22,7 @@ class WebitoPlugin {
         this.hooks[hookName].push(callback);
     }
 
-    async executeHook<TInput, TOutput>(hookName: string, input: { vars: object | undefined, data: TInput }): Promise<TOutput | null> {
+    async executeHook<TInput, TOutput>(hookName: string, input: { variables: object | undefined, data: TInput }): Promise<TOutput | null> {
         const callbacks = this.hooks[hookName];
         if (!callbacks) {
             return null;
